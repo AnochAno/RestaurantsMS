@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "tickets": {
+    "carRentaalService": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/tickets",
+            "outputPath": "dist/car-rentaal-service",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -27,7 +27,12 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "server": "src/main.server.ts",
+            "prerender": true,
+            "ssr": {
+              "entry": "server.ts"
+            }
           },
           "configurations": {
             "production": {
@@ -57,10 +62,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "tickets:build:production"
+              "buildTarget": "carRentaalService:build:production"
             },
             "development": {
-              "buildTarget": "tickets:build:development"
+              "buildTarget": "carRentaalService:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -68,7 +73,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "tickets:build"
+            "buildTarget": "carRentaalService:build"
           }
         },
         "test": {
@@ -91,8 +96,5 @@
         }
       }
     }
-  },
-  "cli": {
-    "analytics": "817728ed-2360-4154-a30a-950783e54aa1"
   }
 }
